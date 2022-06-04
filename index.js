@@ -235,6 +235,18 @@ const keys = {
   w: {
     pressed: false
   },
+  ArrowLeft: {
+    pressed: false
+  },
+  ArrowRight: {
+    pressed: false
+  },
+  ArrowUp: {
+    pressed: false
+  },
+  ArrowDown: {
+    pressed: false
+  },
   space: {
     pressed: false
   },
@@ -402,19 +414,19 @@ function animate(){
 
 
 
-  if(keys.a.pressed && player.position.x >= 0){
+  if(keys.a.pressed && player.position.x >= 0 || keys.ArrowLeft.pressed && player.position.x >= 0){
     player.velocity.x = -5
     player.rotation = -.15
-  } else if(keys.d.pressed && player.position.x <= canvas.width - player.width) {
+  } else if(keys.d.pressed && player.position.x <= canvas.width - player.width || keys.ArrowRight.pressed && player.position.x <= canvas.width - player.width) {
     player.velocity.x = 5
     player.rotation = .15
   } else {
     player.velocity.x = 0
   }
 
-  if(keys.w.pressed && player.position.y > canvas.height*0.75 + canvas.height*0.005){
+  if(keys.w.pressed && player.position.y > canvas.height*0.75 + canvas.height*0.005 || keys.ArrowUp.pressed && player.position.y > canvas.height*0.75 + canvas.height*0.005){
     player.velocity.y = -5
-  } else if(keys.s.pressed && player.position.y < canvas.height - player.height - 20) {
+  } else if(keys.s.pressed && player.position.y < canvas.height - player.height - 20 || keys.ArrowRight.pressed && player.position.y < canvas.height - player.height - 20) {
     player.velocity.y = 5
   } else {
     player.velocity.y = 0
@@ -448,6 +460,18 @@ addEventListener('keydown', ({key}) => {
     case 's':
     keys.s.pressed = true
       break;
+      case 'ArrowLeft':
+      keys.ArrowLeft.pressed = true
+        break;
+        case 'ArrowRight':
+      keys.ArrowRight.pressed = true
+        break;
+      case 'ArrowUp':
+      keys.ArrowUp.pressed = true
+        break;
+      case 'ArrowDown':
+      keys.ArrowDown.pressed = true
+        break;
     case ' ':
     projectiles.push(new Projectile({
       position: {
@@ -475,6 +499,18 @@ addEventListener('keyup', ({key}) => {
         break;
     case 's':
     keys.s.pressed = false
+      break;
+    case 'ArrowLeft':
+    keys.ArrowLeft.pressed = false
+      break;
+      case 'ArrowRight':
+    keys.ArrowRight.pressed = false
+      break;
+    case 'ArrowUp':
+    keys.ArrowUp.pressed = false
+      break;
+    case 'ArrowDown':
+    keys.ArrowDown.pressed = false
       break;
     case ' ':
       break;
