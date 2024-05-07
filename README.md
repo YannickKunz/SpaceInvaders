@@ -1,3 +1,3 @@
 # SpaceInvaders
-SpaceInvaders in Javascript
+SpaceInvaders in Javascript  
 [Game Link](https://myownspaceinvaders.netlify.app)
